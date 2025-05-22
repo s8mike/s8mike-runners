@@ -1,0 +1,22 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Job
+    runs-on: [self-hosted, Linux, X64, repo-build]
+    steps:
+      - name: Echo Build Message
+        run: echo "Running the build process..."
+
+  deploy:
+    name: Deploy Job
+    runs-on: [self-hosted, Linux, X64, repo-deploy]
+    needs: build
+    steps:
+      - name: Echo Deploy Message
+        run: echo "Deploying the application..."
