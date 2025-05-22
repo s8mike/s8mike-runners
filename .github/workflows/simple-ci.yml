@@ -39,15 +39,7 @@ jobs:
           sleep 60
 
 
-
-
-
-
-
-
-
-
-
+#TEST JOB 2
 
 # name: CI Pipeline
 

@@ -4,7 +4,7 @@
 RUNNERS_BASE_DIR="/opt/github-runner-multi"
 
 # GitHub token with permission to remove the runner (if needed)
-REMOVE_TOKEN="AN4MXFJDKBNW6QM5MV7AH5DIFDYN4"                      #replace with repository token
+REMOVE_TOKEN="BG6HYSFFLF6BTW6NX6MXY3TIF6FQY"                      #replace with each runner token (this should be removal token for a runner. they dont have unified token.)
 
 echo "Starting GitHub Runner cleanup..."
 
