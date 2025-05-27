@@ -38,7 +38,7 @@ if [ ! -f "$RUNNER_TAR" ]; then
 fi
 
 echo "[INFO] Validating SHA256 checksum"
-echo "e8e24a3477da17040b4d6fa6d34c6ecb9a2879e800aa532518ec21e49e21d7b4  $RUNNER_TAR" | shasum -a 256 -c     #Replace echo value
+echo "e8e24a3477da17040b4d6fa6d34c6ecb9a2879e800aa532518ec21e49e21d7b4  $RUNNER_TAR" | shasum -a 256 -c     #Replace echo value for another repo
 
 # -----------------------
 # Install multiple runners
