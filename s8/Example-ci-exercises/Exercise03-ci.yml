@@ -8,14 +8,14 @@ on:
 jobs:
   build:
     name: Build Job
-    runs-on: [self-hosted, Linux, X64, repo-build]  #this runs on any of the labels as defined
+    runs-on: [self-hosted,repo-build]  #this runs on any of the labels as defined
     steps:
       - name: Echo Build Message
         run: echo "Running the build process..."
 
   deploy:
     name: Deploy Job
-    runs-on: [self-hosted, Linux, X64, repo-deploy]
+    runs-on: [s9]
     needs: build
     steps:
       - name: Echo Deploy Message

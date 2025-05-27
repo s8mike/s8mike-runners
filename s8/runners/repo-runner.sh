@@ -6,7 +6,7 @@
 RUNNER_VERSION="2.324.0"                               #update version to match
 REPO_URL="https://github.com/s8mike/s8mike-runners"                    #replace with github url/repository
 RUNNER_TOKEN="BG6HYSAMCRDDGGUTZOMB6C3IGWKXY"                                #replace with repository token
-RUNNER_LABELS="repo-build,repo-deploy,s8,s9"                                      # use prefered label
+RUNNER_LABELS="self-hosted,repo-build,repo-deploy,s8,s9"                                      # use prefered label
 RUNNER_USER="runner"
 RUNNER_COUNT=2                                                              #use prefered number of runners
 BASE_DIR="/opt/github-runner-multi"
