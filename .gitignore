@@ -25,3 +25,6 @@ desktop.ini
 
 # 🧠 JetBrains IDE settings
 .idea/
+
+# 🚫 Exclude ubuntu-runner-ec2 directory
+ubuntu-runner-ec2/
