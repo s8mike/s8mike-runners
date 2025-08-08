@@ -8,7 +8,7 @@ on:
 jobs:
   build_deploy_s8:
     name: Build and Deploy for S8
-    runs-on: [self-hosted, s8]
+    runs-on: [self-hosted, s8]                  # Using S8 as the runner
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3

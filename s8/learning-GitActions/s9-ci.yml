@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_deploy_s9:
-    name: Build and Deploy for S9
+    name: Build and Deploy for S9               # Using S9 as the runner  
     runs-on: [self-hosted, s9]
     steps:
       - name: Checkout Code
