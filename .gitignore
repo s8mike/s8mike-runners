@@ -1,6 +1,12 @@
-# 🌍 Terraform state files
-terraform.tfstate
-terraform.tfstate.backup
+
+# 🚫 Ignore all .terraform directories
+**/.terraform/
+
+# 🌍 Terraform state and plan files
+*.tfstate
+*.tfstate.backup
+*.tfplan
+crash.log
 
 # 🐚 Shell script outputs (if any)
 *.log
