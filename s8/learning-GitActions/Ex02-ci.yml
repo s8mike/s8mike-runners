@@ -1,5 +1,3 @@
-# .github/workflows/labeled-echo.yml
-
 name: Labeled Echo Workflow
 
 on:
@@ -9,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: repo-build    #this job runs on github default runner
+    runs-on: [self-hosted, repo-build]           # This job runs on the defined runner, repo-build
     steps:
       - name: Echo from build
         run: |
@@ -17,7 +15,7 @@ jobs:
           sleep 60
 
   deploy:
-    runs-on: repo-deploy
+    runs-on: [self-hosted, repo-deploy]
     steps:
       - name: Echo from deploy
         run: |
@@ -25,13 +23,13 @@ jobs:
           sleep 60
 
   s8:
-    runs-on: ubuntu-latest
+    runs-on: [sel-hosted, s8]
     steps:
       - name: Echo from s8
         run: echo "Running s8 job"
 
   s9:
-    runs-on: s8
+    runs-on: [self-hosted, s9]
     steps:
       - name: Echo from s9
         run: |
