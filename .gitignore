@@ -1,11 +1,11 @@
-
 # 🚫 Ignore all .terraform directories
 **/.terraform/
 
-# 🌍 Terraform state and plan files
+# 🌍 Terraform state, plan, and lock files
 *.tfstate
 *.tfstate.backup
 *.tfplan
+.terraform.lock.hcl
 crash.log
 
 # 🐚 Shell script outputs (if any)
@@ -25,6 +25,7 @@ node_modules/
 # 🪟 Windows system files
 Thumbs.db
 desktop.ini
+*.exe
 
 # 🛠️ VS Code settings
 .vscode/
@@ -34,4 +35,3 @@ desktop.ini
 
 # 🚫 Exclude ubuntu-runner-ec2 directory
 ubuntu-runner-ec2/
-.terraform/
