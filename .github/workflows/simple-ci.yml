@@ -1,4 +1,6 @@
-name: CI Pipeline
+# .github/workflows/simple-ci.yml
+
+name: Labeled Echo Workflow
 
 on:
   push:
@@ -7,16 +9,31 @@ on:
 
 jobs:
   build:
-    name: Build Job
-    runs-on: repo-build  #this runs on any of the labels as defined
+    runs-on: ubuntu-latest
     steps:
-      - name: Echo Build Message
-        run: echo "Running the build process..."
+      - name: Echo from build
+        run: |
+          echo "Running build job"
+          sleep 60
 
   deploy:
-    name: Deploy Job
-    runs-on: s9
-    needs: build
+    runs-on: ubuntu-latest
     steps:
-      - name: Echo Deploy Message
-        run: echo "Deploying the application..."
+      - name: Echo from deploy
+        run: |
+          echo "Running deploy job"
+          sleep 60
+
+  s8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from s8
+        run: echo "Running s8 job"
+
+  s9:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from s9
+        run: |
+          echo "Running s9 job"
+          sleep 60

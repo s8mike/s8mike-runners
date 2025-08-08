@@ -61,14 +61,23 @@ git push origin main
 ```
 s8mike-runners/
 ├── .github/
-│   └── workflows/
-│       └── simple-ci.yml          # Basic CI with labeled echo steps
-├── runners/
-│   ├── org-runner.sh              # Register organization-level self-hosted runner
-│   ├── repo-runner.sh             # Register repository-level self-hosted runner
-│   └── delete-runner.sh           # Remove/unregister a runner
-├── README.md
-└── (your app code...)             # In a real-world project, your repo usually includes code, config, or other logic beyond just DevOps tooling.
+│ └── workflows/
+│ └── (optional: global workflows if needed)
+├── s8/
+│ └── Example-ci-exercises/
+│ ├── ci-step1.yml # CI/CD exercise 1
+│ ├── ci-step2.yml # CI/CD exercise 2
+│ └── ... # More exercise workflow files
+│
+│ └── runners-Scripts/
+│ ├── delete-runner.sh # Remove/unregister a runner
+│ ├── org-runner.sh # Register org-level self-hosted runner
+│ └── repo-runner.sh # Register repo-level self-hosted runner
+│
+├── s9/
+├── s10/
+├── README.md # Project overview and documentation
+
 ```
 
 ---
@@ -128,6 +137,10 @@ bash delete-runner.sh  # or >runner.sh
 * These scripts are intended for Linux environments.
 * You must retrieve registration and removal tokens via the GitHub API or web UI.
 * Always keep tokens secure. Avoid committing them directly in your scripts.
+
+- `Example-ci-exercises/` contains various `.yml` GitHub Actions workflows for exercises.
+- `runners-Scripts/` contains shell scripts to manage self-hosted runners.
+- `s9/` and `s10/` are additional modules or sections (contents not shown).
 
 ---
 

@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Parallel Jobs') {
+            parallel {
+                stage('Setup') {
+                    steps {
+                        echo "🔧 Setting up environment..."
+                        sleep time: 2, unit: 'SECONDS'
+                    }
+                }
+
+                stage('Build') {
+                    steps {
+                        echo "🏗️ Building the application..."
+                        sleep time: 2, unit: 'SECONDS'
+                    }
+                }
+
+                stage('Test') {
+                    steps {
+                        echo "🧪 Running tests..."
+                        sleep time: 2, unit: 'SECONDS'
+                    }
+                }
+
+                stage('Scan') {
+                    steps {
+                        echo "🔍 Performing security scan..."
+                        sleep time: 2, unit: 'SECONDS'
+                    }
+                }
+
+                stage('Deploy') {
+                    steps {
+                        echo "🚀 Deploying application..."
+                        sleep time: 2, unit: 'SECONDS'
+                    }
+                }
+            }
+        }
+    }
+}

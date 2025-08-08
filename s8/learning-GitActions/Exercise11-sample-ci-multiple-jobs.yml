@@ -1,0 +1,68 @@
+name: Multi-Job, Multi-Stage Pipeline
+
+on: [push]
+
+jobs:
+  frontend:
+    name: Frontend Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          echo "📦 Installing frontend packages..."
+          sleep 1
+
+      - name: Run Tests
+        run: |
+          echo "🧪 Running frontend tests..."
+          sleep 1
+
+      - name: Build Project
+        run: |
+          echo "🏗️ Building frontend..."
+          sleep 1
+
+      - name: Deploy Frontend
+        run: |
+          echo "🚀 Deploying frontend..."
+          sleep 1
+
+  backend:
+    name: Backend Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Install Dependencies
+        run: |
+          echo "📦 Installing backend dependencies..."
+          sleep 1
+
+      - name: Run Tests
+        run: |
+          echo "🧪 Running backend tests..."
+          sleep 1
+
+      - name: Build Project
+        run: |
+          echo "🏗️ Building backend..."
+          sleep 1
+
+      - name: Deploy Backend
+        run: |
+          echo "🚀 Deploying backend..."
+          sleep 1

@@ -1,0 +1,21 @@
+name: Conditional Steps
+
+on: [push]
+
+jobs:
+  condition-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Always runs                  #This step has no condition, so it runs on every push, regardless of branch or who pushed it.
+        run: echo "This always runs"         
+
+      - name: Run only on main branch         #This step only runs if the push is to the main branch.
+        if: github.ref == 'refs/heads/main'
+        run: echo "You are on the main branch!"
+
+      - name: Skip if Dependabot                  #Skips if triggered by Dependabot automation
+        if: github.actor != 'dependabot[bot]'      
+        run: echo "Not triggered by Dependabot"
+
+
