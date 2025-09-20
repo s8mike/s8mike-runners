@@ -43,8 +43,8 @@ jobs:
       - name: Checkout repository          # to check the repository in question
         uses: actions/checkout@v3          # checkout action
 
-      - name: checkout Docker version       # To check if docker is installed
-        run: docker --version               # To check the docker version
+      # - name: checkout Docker version       # To check if docker is installed
+      #   run: docker --version               # To check the docker version
 
       - name: checkout Git version
         run: git --version
