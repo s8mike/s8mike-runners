@@ -5,48 +5,48 @@ on: [push]
 jobs:
   setup:
     name: Setup Job
-    runs-on: ubuntu-latest
+    runs-on: repo-deploy
     steps:
       - name: Setup environment
         run: |
           echo "🔧 Setting up environment..."
-          sleep 2
+          sleep 30
 
   build:
     name: Build Job
-    runs-on: ubuntu-latest
+    runs-on: repo-build
     steps:
       - name: Build application
         run: |
           echo "🏗️ Building the application..."
-          sleep 2
+          sleep 30
 
   test:
     name: Test Job
-    runs-on: ubuntu-latest
+    runs-on: s9
     steps:
       - name: Run tests
         run: |
           echo "🧪 Running tests..."
-          sleep 2
+          sleep 30
 
-  scan:
-    name: Scan Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Security scan
-        run: |
-          echo "🔍 Performing security scan..."
-          sleep 2
+  # scan:
+  #   name: Scan Job
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Security scan
+  #       run: |
+  #         echo "🔍 Performing security scan..."
+  #         sleep 30
 
-  deploy:
-    name: Deploy Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy application
-        run: |
-          echo "🚀 Deploying application..."
-          sleep 2
+  # deploy:
+  #   name: Deploy Job
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy application
+  #       run: |
+  #         echo "🚀 Deploying application..."
+  #         sleep 30
 
 
 

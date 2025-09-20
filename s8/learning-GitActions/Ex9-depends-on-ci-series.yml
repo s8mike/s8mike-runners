@@ -1,6 +1,10 @@
-name:  Series Pipeline            #Uses one runner as defined on "runs-on"
+name:  Series Pipeline      #Uses one runner as defined on "runs-on". Job ran successfully on repo-deploy runner
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
 
 jobs:
   setup:
@@ -51,8 +55,6 @@ jobs:
         run: |
           echo "🚀 Deploying application..."
           sleep 30
-
-
 
 
 # Job dependencies with needs.

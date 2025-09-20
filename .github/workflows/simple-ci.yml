@@ -1,4 +1,4 @@
-# .github/workflows/simple-ci.yml
+#  ##.github/workflows/simple-ci.yml
 
 # name: CI Pipeline
 
@@ -26,14 +26,9 @@
 #         run: echo "Deploying the application..."
 
 
+name: Multi Job Parallel               #uses multiple runners or one as defined in "runs-on", builds same time
 
-name:  Series Pipeline            #Uses one runner as defined on "runs-on"
-
-on:
-  push:
-    branches:
-      - main
-
+on: [push]
 
 jobs:
   setup:
@@ -47,8 +42,7 @@ jobs:
 
   build:
     name: Build Job
-    runs-on: repo-deploy
-    needs: setup
+    runs-on: repo-build
     steps:
       - name: Build application
         run: |
@@ -57,30 +51,10 @@ jobs:
 
   test:
     name: Test Job
-    runs-on: repo-deploy
-    needs: build
+    runs-on: s9
     steps:
       - name: Run tests
         run: |
           echo "🧪 Running tests..."
           sleep 30
 
-  scan:
-    name: Scan Job
-    runs-on: repo-deploy
-    needs: test
-    steps:
-      - name: Security scan
-        run: |
-          echo "🔍 Performing security scan..."
-          sleep 30
-
-  deploy:
-    name: Deploy Job
-    runs-on: repo-deploy
-    needs: scan
-    steps:
-      - name: Deploy application
-        run: |
-          echo "🚀 Deploying application..."
-          sleep 30
