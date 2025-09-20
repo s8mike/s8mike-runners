@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Lightweight DevOps environment for t2.micro
+# Includes: basic tools, AWS CLI, Docker, Docker Compose, and runner user
 
 # Update system
 sudo apt update -y
@@ -25,8 +26,7 @@ for package in "${packages[@]}"; do
     echo "Installing $package ..."
     sudo apt install -y "$package"
 done
-
-echo "Basic package installation completed."
+echo "Basic package installation completed ✅"
 
 # Install AWS CLI v2
 echo "Installing AWS CLI..."
@@ -65,4 +65,16 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-echo "Lightweight DevOps setup completed ✅"
+# Create runner user with Docker + sudo access
+echo "Creating runner user..."
+if ! id "runner" &>/dev/null; then
+    sudo useradd -m -s /bin/bash runner
+    echo -e "runner\nrunner" | sudo passwd runner
+    sudo usermod -aG docker runner
+    echo "runner ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+    echo "User 'runner' created and added to sudoers + docker group ✅"
+else
+    echo "User 'runner' already exists."
+fi
+
+echo "Lightweight DevOps setup completed 🎉"
