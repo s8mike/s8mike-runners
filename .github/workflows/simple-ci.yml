@@ -24,3 +24,47 @@ jobs:
     steps:
       - name: Echo Deploy Message
         run: echo "Deploying the application..."
+
+
+
+
+
+
+
+name: Labeled Echo Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [self-hosted, repo-build]           # This job runs on the defined runner, repo-build
+    steps:
+      - name: Echo from build
+        run: |
+          echo "Running build job"
+          sleep 60
+
+  deploy:
+    runs-on: [self-hosted, repo-deploy]
+    steps:
+      - name: Echo from deploy
+        run: |
+          echo "Running deploy job"
+          sleep 60
+
+  s8:
+    runs-on: [sel-hosted, s9]
+    steps:
+      - name: Echo from s8
+        run: echo "Running s8 job"
+
+  s9:
+    runs-on: [self-hosted, s9]
+    steps:
+      - name: Echo from s9
+        run: |
+          echo "Running s9 job"
+          sleep 60
