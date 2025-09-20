@@ -60,6 +60,7 @@ jobs:
     steps:
       - name: Echo from s8
         run: echo "Running s8 job"
+             sleep 60
 
   s9:
     runs-on: [self-hosted, s9]
