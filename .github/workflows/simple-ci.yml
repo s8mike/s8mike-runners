@@ -1,29 +1,29 @@
-# .github/workflows/simple-ci.yml
+# # .github/workflows/simple-ci.yml
 
-name: CI Pipeline
+# name: CI Pipeline
 
-on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'README.md'     # Ignore changes to README.md. It won't trigger the workflow but will still be pushed to the repo.
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths-ignore:
+#       - 'README.md'     # Ignore changes to README.md. It won't trigger the workflow but will still be pushed to the repo.
 
-jobs:
-  build:
-    name: Build Job
-    runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
-    steps:
-      - name: Echo Build Message
-        run: echo "Running the build process..."
+# jobs:
+#   build:
+#     name: Build Job
+#     runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
+#     steps:
+#       - name: Echo Build Message
+#         run: echo "Running the build process..."
 
-  deploy:
-    name: Deploy Job
-    runs-on: s9
-    needs: build
-    steps:
-      - name: Echo Deploy Message
-        run: echo "Deploying the application..."
+#   deploy:
+#     name: Deploy Job
+#     runs-on: s9
+#     needs: build
+#     steps:
+#       - name: Echo Deploy Message
+#         run: echo "Deploying the application..."
 
 
 
