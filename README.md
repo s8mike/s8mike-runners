@@ -152,4 +152,4 @@ bash delete-runner.sh  # or >runner.sh
 ```
 
 
-changes made on this file to confirm if pipeline will build.
+changes made on simple-ci.yml file to confirm if pipeline will build.

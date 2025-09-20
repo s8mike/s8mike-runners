@@ -1,67 +1,27 @@
-# # .github/workflows/simple-ci.yml
+# .github/workflows/simple-ci.yml
 
-# name: CI Pipeline
-
-# on:
-#   push:
-#     branches:
-#       - main
-
-# jobs:
-#   build:
-#     name: Build Job
-#     runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
-#     steps:
-#       - name: Echo Build Message
-#         run: echo "Running the build process..."
-
-#   deploy:
-#     name: Deploy Job
-#     runs-on: s9
-#     needs: build
-#     steps:
-#       - name: Echo Deploy Message
-#         run: echo "Deploying the application..."
-
-
-
-
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths-ignore:
       - 'README.md'
-      - 'docs/**'
-  pull_request:
-    branches: [ main ]
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
+      - 'docs/**
 
 jobs:
   build:
-    runs-on: [self-hosted, repo-build]             # Modify to run on a specific runner if needed
-
+    name: Build Job
+    runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Echo Build Message
+        run: echo "Running the build process..."
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy (optional)
-        if: github.ref == 'refs/heads/main'
-        run: echo "Deploying to production..."
+  deploy:
+    name: Deploy Job
+    runs-on: s9
+    needs: build
+    steps:
+      - name: Echo Deploy Message
+        run: echo "Deploying the application..."
