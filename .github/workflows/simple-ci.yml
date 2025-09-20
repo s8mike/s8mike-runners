@@ -63,6 +63,7 @@ jobs:
 
   s9:
     runs-on: [self-hosted, s9]
+    needs: s8
     steps:
       - name: Echo from s9
         run: |
