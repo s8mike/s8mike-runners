@@ -1,46 +1,5 @@
 # .github/workflows/simple-ci.yml
 
-name: Labeled Echo Workflow
-
-on:
-  push:
-    branches:
-      - main
-      - develop
-      - s8mike
-
-jobs:
-  build:
-    runs-on: [self-hosted, s9]           # This job runs on the defined runner, repo-build
-    steps:
-      - name: Echo from build
-        run: |
-          echo "Running build job"
-          sleep 60
-
-  deploy:
-    runs-on: [self-hosted, s9]
-    steps:
-      - name: Echo from deploy
-        run: |
-          echo "Running deploy job"
-          sleep 60
-
-  s9:
-    runs-on: [sel-hosted, s9]
-    steps:
-      - name: Echo from s9
-        run: echo "Running s9 job"
-             sleep 60
-
-  s9:
-    runs-on: [self-hosted, s9]
-    steps:
-      - name: Echo from s9
-        run: |
-          echo "Running s9 job"
-          sleep 60
-
 # name: CI Pipeline
 
 # on:
@@ -66,3 +25,62 @@ jobs:
 #       - name: Echo Deploy Message
 #         run: echo "Deploying the application..."
 
+
+
+name:  Series Pipeline            #Uses one runner as defined on "runs-on"
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  setup:
+    name: Setup Job
+    runs-on: repo-deploy
+    steps:
+      - name: Setup environment
+        run: |
+          echo "🔧 Setting up environment..."
+          sleep 30
+
+  build:
+    name: Build Job
+    runs-on: repo-deploy
+    needs: setup
+    steps:
+      - name: Build application
+        run: |
+          echo "🏗️ Building the application..."
+          sleep 30
+
+  test:
+    name: Test Job
+    runs-on: repo-deploy
+    needs: build
+    steps:
+      - name: Run tests
+        run: |
+          echo "🧪 Running tests..."
+          sleep 30
+
+  scan:
+    name: Scan Job
+    runs-on: repo-deploy
+    needs: test
+    steps:
+      - name: Security scan
+        run: |
+          echo "🔍 Performing security scan..."
+          sleep 30
+
+  deploy:
+    name: Deploy Job
+    runs-on: repo-deploy
+    needs: scan
+    steps:
+      - name: Deploy application
+        run: |
+          echo "🚀 Deploying application..."
+          sleep 30
