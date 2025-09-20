@@ -3,9 +3,9 @@
 # -----------------------
 # Configurable Variables
 # -----------------------
-RUNNER_VERSION="2.327.1"                               #update version to match
-REPO_URL="https://github.com/s8mike/Alertmanager-grafana"                    #replace with github url/repository
-RUNNER_TOKEN="BG6HYSCZRWMW7BOOEAQ52K3ISSAZI"                                #replace with repository token
+RUNNER_VERSION="2.328.0"                               #update version to match
+REPO_URL="https://github.com/s8mike/s8mike-runners"                    #replace with github url/repository
+RUNNER_TOKEN="BG6HYSAZ6HMRJGIPVWI5MP3IZZ5TA"                                #replace with repository token
 RUNNER_LABELS="repo-build,repo-deploy,s9"                                      # use prefered label
 RUNNER_USER="runner"
 RUNNER_COUNT=3                                                              #use prefered number of runners
@@ -38,7 +38,7 @@ if [ ! -f "$RUNNER_TAR" ]; then
 fi
 
 echo "[INFO] Validating SHA256 checksum"
-echo "d68ac1f500b747d1271d9e52661c408d56cffd226974f68b7dc813e30b9e0575  $RUNNER_TAR" | shasum -a 256 -c     #Replace echo value
+echo "01066fad3a2893e63e6ca880ae3a1fad5bf9329d60e77ee15f2b97c148c3cd4e  $RUNNER_TAR" | shasum -a 256 -c     #Replace echo value
 
 # -----------------------
 # Install multiple runners
