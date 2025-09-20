@@ -56,7 +56,7 @@ jobs:
           sleep 60
 
   s8:
-    runs-on: [sel-hosted, s9]
+    runs-on: [sel-hosted]
     steps:
       - name: Echo from s8
         run: echo "Running s8 job"
