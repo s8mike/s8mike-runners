@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, s8]           # This job runs on the defined runner, repo-build
+    runs-on: [self-hosted, s9]           # This job runs on the defined runner, repo-build
     steps:
       - name: Echo from build
         run: |
@@ -19,22 +19,22 @@ jobs:
           sleep 60
 
   deploy:
-    runs-on: [self-hosted, s8]
+    runs-on: [self-hosted, s9]
     steps:
       - name: Echo from deploy
         run: |
           echo "Running deploy job"
           sleep 60
 
-  s8:
-    runs-on: [sel-hosted, s8]
+  s9:
+    runs-on: [sel-hosted, s9]
     steps:
-      - name: Echo from s8
-        run: echo "Running s8 job"
+      - name: Echo from s9
+        run: echo "Running s9 job"
              sleep 60
 
   s9:
-    runs-on: [self-hosted, s8]
+    runs-on: [self-hosted, s9]
     steps:
       - name: Echo from s9
         run: |
