@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest              # Modify to run on a specific runner if needed
+    runs-on: [self-hosted, repo-build]             # Modify to run on a specific runner if needed
 
     steps:
       - name: Checkout code
