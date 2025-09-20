@@ -1,0 +1,21 @@
+name: S8 CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_deploy_s8:
+    name: Build and Deploy for S8
+    runs-on: [self-hosted, s8]                  # Using S8 as the runner
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: S8 Build Step
+        run: echo "Executing build step for S8"
+
+      - name: S8 Deploy Step
+        run: sleep 60
+

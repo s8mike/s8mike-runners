@@ -1,0 +1,23 @@
+# .github/workflows/simple-ci.yml
+
+# Test job will fail because docker is not installed on the server. When docker is commented out or installed, it will pass
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-versions:
+    runs-on: [self-hosted, s9]                  # Using S8 as the runner
+
+    steps:                                 # what do we want to do
+      - name: Checkout repository          # to check the repository in question
+        uses: actions/checkout@v3          # checkout action
+
+      - name: checkout Docker version       # To check if docker is installed
+        run: docker --version               # To check the docker version
+
+      - name: checkout Git version
+        run: git --version
