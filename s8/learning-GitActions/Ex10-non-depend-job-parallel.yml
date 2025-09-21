@@ -1,4 +1,4 @@
-name: Multi Job Parallel               #uses multiple runners or one as defined in "runs-on", builds same time
+name: Multi Job Parallel       # Executed. uses multiple runners or each job has a runner as defined in "runs-on", builds same time
 
 on: [push]
 
@@ -30,23 +30,23 @@ jobs:
           echo "🧪 Running tests..."
           sleep 30
 
-  # scan:
-  #   name: Scan Job
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Security scan
-  #       run: |
-  #         echo "🔍 Performing security scan..."
-  #         sleep 30
+  scan:
+    name: Scan Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Security scan
+        run: |
+          echo "🔍 Performing security scan..."
+          sleep 30
 
-  # deploy:
-  #   name: Deploy Job
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy application
-  #       run: |
-  #         echo "🚀 Deploying application..."
-  #         sleep 30
+  deploy:
+    name: Deploy Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy application
+        run: |
+          echo "🚀 Deploying application..."
+          sleep 30
 
 
 

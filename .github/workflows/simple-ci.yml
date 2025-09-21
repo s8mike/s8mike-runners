@@ -1,60 +1,26 @@
-#  ##.github/workflows/simple-ci.yml
+ ##.github/workflows/simple-ci.yml
 
-# name: CI Pipeline
+name: CI Pipeline
 
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths-ignore:
-#       - 'README.md'     # Ignore changes to README.md. It won't trigger the workflow but will still be pushed to the repo.
-
-# jobs:
-#   build:
-#     name: Build Job
-#     runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
-#     steps:
-#       - name: Echo Build Message
-#         run: echo "Running the build process..."
-
-#   deploy:
-#     name: Deploy Job
-#     runs-on: s9
-#     needs: build
-#     steps:
-#       - name: Echo Deploy Message
-#         run: echo "Deploying the application..."
-
-
-name: Multi Job Parallel               #uses multiple runners or one as defined in "runs-on", builds same time
-
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'     # Ignore changes to README.md. It won't trigger the workflow but will still be pushed to the repo.
 
 jobs:
-  setup:
-    name: Setup Job
-    runs-on: repo-deploy
-    steps:
-      - name: Setup environment
-        run: |
-          echo "🔧 Setting up environment..."
-          sleep 30
-
   build:
     name: Build Job
-    runs-on: repo-build
+    runs-on: [self-hosted, repo-build]  #this runs on any of the labels as defined
     steps:
-      - name: Build application
-        run: |
-          echo "🏗️ Building the application..."
-          sleep 30
+      - name: Echo Build Message
+        run: echo "Running the build process..."
 
-  test:
-    name: Test Job
+  deploy:
+    name: Deploy Job
     runs-on: s9
+    needs: build
     steps:
-      - name: Run tests
-        run: |
-          echo "🧪 Running tests..."
-          sleep 30
-
+      - name: Echo Deploy Message
+        run: echo "Deploying the application..."
