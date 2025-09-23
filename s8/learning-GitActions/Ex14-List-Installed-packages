@@ -1,0 +1,20 @@
+
+# .github/workflows/simple-ci.yml
+
+# Test job is expected to list all installed packages on the self-hosted runner s9
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-installed-packages:
+    runs-on: [self-hosted, s9]                  # Using s9 as the runner
+
+    steps:                                 # what do we want to do
+
+      - name: List all installed packages
+        run: dpkg -l 
+

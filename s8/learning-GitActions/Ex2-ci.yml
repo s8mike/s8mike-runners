@@ -10,7 +10,7 @@ on:
 
 jobs:
   check-versions:
-    runs-on: [self-hosted, s9]                  # Using S8 as the runner
+    runs-on: [self-hosted, repo-build]                  # Using S8 as the runner
 
     steps:                                 # what do we want to do
       - name: Checkout repository          # to check the repository in question
@@ -21,3 +21,9 @@ jobs:
 
       - name: checkout Git version
         run: git --version
+
+      - name: checkout docker-compose version
+        run: docker-compose --version
+
+      - name: checkout curl version
+        run: curl --version
