@@ -36,4 +36,6 @@ desktop.ini
 # 🚫 Exclude ubuntu-runner-ec2 directory
 ubuntu-runner-ec2/
 learning-GitActions/guide.md
-s9/app01
+s9/app01/api.Dockerfile
+s9/app01/db.Dockerfile
+s9/app01/docker-compose001.yml
