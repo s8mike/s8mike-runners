@@ -12,18 +12,18 @@ on:
       - main
 
 jobs:
-  checkout:
-    name: Stage 1 - Checkout
-    runs-on: [self-hosted, repo-build]
+  # checkout:
+  #   name: Stage 1 - Checkout
+  #   runs-on: [self-hosted, repo-build]
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
 
   build_image_and_push_into_dockerhub:
     name: Build image and push to DockerHub
     runs-on: [self-hosted, repo-build]
-    needs: checkout
+    # needs: checkout
 
     steps:
       - name: Checkout repository
