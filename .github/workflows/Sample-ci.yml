@@ -24,7 +24,6 @@ jobs:
     name: Build image and push to DockerHub
     runs-on: [self-hosted, repo-build]
     # needs: checkout
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
