@@ -57,3 +57,5 @@ jobs:
           IMAGE_TAG=latest
           echo "Pushing Docker image: $IMAGE_NAME:$IMAGE_TAG"
           sudo docker push $IMAGE_NAME:$IMAGE_TAG
+
+
