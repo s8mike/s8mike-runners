@@ -16,17 +16,17 @@ jobs:
       - name: Debug Docker info
         run: |
           docker --version
-          docker info
+          sudo docker info
 
       - name: Docker login
         run: |
           echo "Logging into Docker Hub..."
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | sudo docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           echo "Login successful"
 
       - name: Verify login
         run: |
-          docker info | grep Username || echo "Login verification failed"
+          sudo docker info | grep Username || echo "Login verification failed"
 
       - name: Build Docker image
         run: |
@@ -48,7 +48,7 @@ jobs:
           echo "Pushing Docker image: $IMAGE_NAME:$IMAGE_TAG"
           sudo docker push $IMAGE_NAME:$IMAGE_TAG
 
-
+          
 # # .github/workflows/simple-ci.yml
 
 # # This CI workflow checks out the repository, builds a Docker image from the specified directory, and pushes it to DockerHub.
