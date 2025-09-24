@@ -28,7 +28,7 @@ jobs:
     needs: checkout
 
     steps:                                 # what do we want to do
-      - name: Testing the commented
+      - name: Testing the code
         run: |
           docker --version
           sudo docker images
