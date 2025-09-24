@@ -44,6 +44,7 @@ jobs:
           IMAGE_TAG=latest
           echo "Building Docker image: $IMAGE_NAME:$IMAGE_TAG"
           docker build -t $IMAGE_NAME:$IMAGE_TAG s9/app01
+          sudo docker images
 
       # - name: Push Docker image
       #   run: |
