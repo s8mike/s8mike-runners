@@ -65,6 +65,11 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
+
+## Set vim as default text editor
+sudo update-alternatives --set editor /usr/bin/vim.basic
+sudo update-alternatives --set vi /usr/bin/vim.basic
+
 # Create runner user with Docker + sudo access
 echo "Creating runner user..."
 if ! id "runner" &>/dev/null; then

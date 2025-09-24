@@ -26,10 +26,9 @@
 #         run: echo "Deploying the application..."
 
 
-
 # .github/workflows/simple-ci.yml
 
-# Test job is expected to list all installed packages on the self-hosted runner s9
+# Test job will fail because docker is not installed on the server. When docker is commented out or installed, it will pass
 name: CI Workflow
 
 on:
@@ -38,10 +37,23 @@ on:
       - main
 
 jobs:
-  check-installed-packages:
-    runs-on: [self-hosted, s9]                  # Using s9 as the runner
+  check-versions:
+    runs-on: [self-hosted, repo-build]                  # Using S8 as the runner
 
     steps:                                 # what do we want to do
+      - name: Checkout repository          # to check the repository in question
+        uses: actions/checkout@v3          # checkout action
 
-      - name: List all installed packages
-        run: dpkg -l 
+      - name: checkout Docker version       # To check if docker is installed
+        run: 
+          docker --version             
+          sudo docker images              
+
+      - name: checkout Git version
+        run: git --version
+
+      - name: checkout docker-compose version
+        run: docker-compose --version
+
+      - name: checkout curl version
+        run: curl --version
