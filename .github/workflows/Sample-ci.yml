@@ -80,7 +80,7 @@ jobs:
           IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/app01
           IMAGE_TAG=latest
           echo "Building Docker image: $IMAGE_NAME:$IMAGE_TAG"
-          sudo docker build -f api.Dockerfile -t $IMAGE_NAME:$IMAGE_TAG s9/app01
+          sudo docker build -f s9/app01/api.Dockerfile -t $IMAGE_NAME:$IMAGE_TAG s9/app01
           echo "Build completed successfully"
       - name: Verify image exists
         run: |
