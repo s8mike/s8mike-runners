@@ -41,3 +41,11 @@ jobs:
           IMAGE_TAG=latest
           echo "Pushing Docker image: $IMAGE_NAME:$IMAGE_TAG"
           sudo docker push $IMAGE_NAME:$IMAGE_TAG
+
+# Added cleanup step to free up space
+      - name: Cleanup Docker to free space
+        if: always()   # ensure this runs even if the job fails
+        run: |
+          echo "Cleaning up Docker to free disk space..."
+          sudo docker system prune -af --volumes
+          echo "Cleanup complete"

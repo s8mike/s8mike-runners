@@ -1,4 +1,6 @@
 # .github/workflows/simple-ci.yml
+
+# Images building in parallel for api.Dockerfile, db.Dockerfile, frontend.Dockerfile
 name: CI Workflow
 on:
   push:
@@ -72,3 +74,11 @@ jobs:
           sudo docker push $BASE_IMAGE_NAME/app01-frontend:$IMAGE_TAG
           
           echo "All pushes completed successfully"
+
+    
+      - name: Cleanup Docker to free space
+        if: always()   # ensure this runs even if the job fails
+        run: |
+          echo "Cleaning up Docker to free disk space..."
+          sudo docker system prune -af --volumes
+          echo "Cleanup complete"
