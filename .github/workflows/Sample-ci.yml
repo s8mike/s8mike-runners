@@ -57,24 +57,24 @@ jobs:
           sudo docker images | grep "$BASE_IMAGE_NAME/app01-db" || echo "Database image not found" 
           sudo docker images | grep "$BASE_IMAGE_NAME/app01-frontend" || echo "Frontend image not found"
       
-      # - name: Push Docker images
-      #   run: |
-      #     BASE_IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}
-      #     IMAGE_TAG=latest
+      - name: Push Docker images
+        run: |
+          BASE_IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}
+          IMAGE_TAG=latest
           
-      #     # Push API image
-      #     echo "Pushing API Docker image: $BASE_IMAGE_NAME/app01-api:$IMAGE_TAG"
-      #     sudo docker push $BASE_IMAGE_NAME/app01-api:$IMAGE_TAG
+          # Push API image
+          echo "Pushing API Docker image: $BASE_IMAGE_NAME/app01-api:$IMAGE_TAG"
+          sudo docker push $BASE_IMAGE_NAME/app01-api:$IMAGE_TAG
           
-      #     # Push Database image  
-      #     echo "Pushing Database Docker image: $BASE_IMAGE_NAME/app01-db:$IMAGE_TAG"
-      #     sudo docker push $BASE_IMAGE_NAME/app01-db:$IMAGE_TAG
+          # Push Database image  
+          echo "Pushing Database Docker image: $BASE_IMAGE_NAME/app01-db:$IMAGE_TAG"
+          sudo docker push $BASE_IMAGE_NAME/app01-db:$IMAGE_TAG
           
-      #     # Push Frontend image
-      #     echo "Pushing Frontend Docker image: $BASE_IMAGE_NAME/app01-frontend:$IMAGE_TAG"
-      #     sudo docker push $BASE_IMAGE_NAME/app01-frontend:$IMAGE_TAG
+          # Push Frontend image
+          echo "Pushing Frontend Docker image: $BASE_IMAGE_NAME/app01-frontend:$IMAGE_TAG"
+          sudo docker push $BASE_IMAGE_NAME/app01-frontend:$IMAGE_TAG
           
-      #     echo "All pushes completed successfully"
+          echo "All pushes completed successfully"
 
     
       - name: Cleanup Docker to free space
